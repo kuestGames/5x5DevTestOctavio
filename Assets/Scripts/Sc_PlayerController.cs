@@ -24,7 +24,19 @@ namespace DevTest.Gameplay
         {
             transform.position = playerOrigin;
         }
+        public void OnMoveUI(int xValue)
+        {
+            inputVector = new Vector3(xValue, 0, 0);
+        }
 
+        public void OnFireUI()
+        {
+            if (canFire)
+            {
+                Sc_GameplayManager.Instance.FireBullet(transform.position);
+                canFire = false;
+            }
+        }
 
         private void OnMove(InputValue value)
         {
